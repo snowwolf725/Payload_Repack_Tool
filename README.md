@@ -1,4 +1,4 @@
-# payload repack tool
+# payload.bin repack tool
 
 Using delta_generator to repack `payload.bin`.
 
