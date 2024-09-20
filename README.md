@@ -6,6 +6,7 @@ Using delta_generator to repack `payload.bin`.
 
 ### Requirements
 
+- A compatible Linux system (x86_64/aarch64)
 - openssl
 - openssl-tool
 
