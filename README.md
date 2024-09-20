@@ -2,19 +2,23 @@
 
 Using delta_generator to repack `payload.bin`.
 
-## Installation
-
 ### Requirements
 
 - A compatible Linux system (x86_64/aarch64)
+- git
 - openssl
 ```bash
-sudo apt-get install openssl
+sudo apt-get install git openssl
 ```
 - openssl-tool
 
 ```bash
-pkg install openssl-tool
+pkg install git openssl-tool
+```
+
+## Installation
+```bash
+git clone https://github.com/snowwolf725/Payload_Repack_Tool.git
 ```
 
 ## Usage
@@ -22,9 +26,10 @@ pkg install openssl-tool
 ### repack `payload.bin`
 
 ```bash
-git clone https://github.com/snowwolf725/Payload_Repack_Tool.git
 cd Payload_Repack_Tool
 #copy *.img into images folder
 #cp -a *.img images
 ./repack.sh
 ```
+## Demo
+【Android payload.bin 打包-哔哩哔哩】 https://b23.tv/W166gqz
