@@ -8,6 +8,9 @@ Using delta_generator to repack `payload.bin`.
 
 - A compatible Linux system (x86_64/aarch64)
 - openssl
+```bash
+sudo apt-get install openssl
+```
 - openssl-tool
 
 ```bash
