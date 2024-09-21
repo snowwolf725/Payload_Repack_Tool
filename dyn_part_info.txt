@@ -1,0 +1,4 @@
+super_partition_size=17179869184
+super_qti_dynamic_partitions_group_size=17175674880
+super_partition_groups=qti_dynamic_partitions
+super_qti_dynamic_partitions_partition_list=vendor system product odm my_engineering system_ext my_product my_stock my_heytap my_company my_carrier my_region my_preload my_bigball my_manifest
