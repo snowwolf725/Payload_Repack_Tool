@@ -31,5 +31,18 @@ cd Payload_Repack_Tool
 #cp -a *.img images
 ./repack.sh
 ```
+
+### repack `payload.bin` with dynamic partition info
+
+```bash
+cd Payload_Repack_Tool
+#copy *.img into images folder
+#cp -a *.img images
+#modify dyn_part_info.txt
+#vi dyn_part_info.txt
+./repack_with_dpart.sh
+```
+
 ## Demo
-【Android payload.bin 打包-哔哩哔哩】 https://b23.tv/W166gqz
+【Android payload.bin 打包-哔哩哔哩】 
+https://b23.tv/W166gqz
