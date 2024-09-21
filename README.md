@@ -6,6 +6,12 @@ Using delta_generator to repack `payload.bin`.
 
 - A compatible Linux system (x86_64/aarch64)
 - git
+- 7z
+- openjdk-jre
+- python
+- python-protobuf 
+- zip
+- unzip
 - openssl
 ```bash
 sudo apt-get install git openssl
