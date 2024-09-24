@@ -12,11 +12,14 @@ Using delta_generator to repack `payload.bin`.
 - zip
 - unzip
 - openssl
-```bash
-sudo apt-get install git openssl
-```
 - openssl-tool
 
+### Linux X86-64 (Ubuntu)
+```bash
+sudo apt-get install git openssl openjdk-17-jre-headless python-protobuf python unzip zip
+```
+
+### Termux
 ```bash
 pkg install git openssl-tool zip unzip python openjdk-17
 ```
@@ -32,20 +35,31 @@ git clone https://github.com/snowwolf725/Payload_Repack_Tool.git
 
 ```bash
 cd Payload_Repack_Tool
-#copy *.img into images folder
-#cp -a *.img images
-./repack.sh
+#copy *.img into IMAGES folder
+#cp -a *.img IMAGES
+./repackPayload.sh
 ```
 
 ### repack `payload.bin` with dynamic partition info
 
 ```bash
 cd Payload_Repack_Tool
-#copy *.img into images folder
-#cp -a *.img images
-#modify dyn_part_info.txt
-#vi dyn_part_info.txt
-./repack_with_dpart.sh
+#copy *.img into IMAGES folder
+#cp -a *.img IMAGES
+#modify META/dynamic_partitions_info.txt
+#vi META/dynamic_partitions_info.txt
+./repackPayload_withDpart.sh
+```
+
+### repack `OTA.zip`
+
+```bash
+cd Payload_Repack_Tool
+#copy *.img into IMAGES folder
+#cp -a *.img IMAGES
+#modify META/*.txt SYSTEM/build.prop
+#vi META/*.txt SYSTEM/build.prop
+./repackZip.sh
 ```
 
 ## Demo
