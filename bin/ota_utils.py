@@ -305,25 +305,16 @@ def BuildLegacyOtaMetadata(metadata_proto):
     metadata_dict['ota-downgrade'] = 'yes'
 
   metadata_dict['ota-required-cache'] = str(metadata_proto.required_cache)
-# Realme GT
+
   post_build = metadata_proto.postcondition
-  metadata_dict['android_version'] = '11'
-  metadata_dict['google_patch'] = '20990909'
-  metadata_dict['oplus_hexnv_id'] = '97'
-  metadata_dict['os_version'] = 'V11.2'
-  metadata_dict['ota-downgrade'] = 'yes'
-  metadata_dict['ota-id'] = 'RMX2202_11.A.88_8880_202108250228'
-  metadata_dict['ota_version'] = 'RMX2202_11.A.88_8880_202201060228'
-  metadata_dict['patch_type'] = '1'
+  metadata_dict['post-build'] = separator.join(post_build.build)
+  metadata_dict['post-build-incremental'] = post_build.build_incremental
+  metadata_dict['post-sdk-level'] = post_build.sdk_level
   metadata_dict['post-security-patch-level'] = post_build.security_patch_level
   metadata_dict['post-timestamp'] = str(post_build.timestamp)
 
-# Realme GT
   pre_build = metadata_proto.precondition
   metadata_dict['pre-device'] = separator.join(pre_build.device)
-  metadata_dict['product_name'] = 'RMX2202'
-  metadata_dict['version_name'] = 'Realme GT 5G CrDrom phh GSI By qiurigao'
-# Realme GT 5G PixelExperience Plus By qiurigao
   # incremental updates
   if len(pre_build.build) != 0:
     metadata_dict['pre-build'] = separator.join(pre_build.build)
