@@ -21,7 +21,7 @@ sudo apt-get install git openssl openjdk-17-jre-headless python-protobuf python 
 
 ### Termux
 ```bash
-pkg install git openssl-tool zip unzip python openjdk-17
+pkg install git openssl-tool zip unzip python openjdk-17 xxd
 ```
 
 ## Installation
