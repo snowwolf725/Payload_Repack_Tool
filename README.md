@@ -17,11 +17,13 @@ Using delta_generator to repack `payload.bin`.
 ### Linux X86-64 (Ubuntu)
 ```bash
 sudo apt-get install git openssl openjdk-17-jre-headless python-protobuf python unzip zip
+pip install -r requirements.txt
 ```
 
 ### Termux
 ```bash
 pkg install git openssl-tool zip unzip python openjdk-17 xxd
+pip install -r requirements.txt
 ```
 
 ## Installation
