@@ -3788,7 +3788,12 @@ def GetBootImageBuildProp(boot_img, ramdisk_format=RamdiskFormat.LZ4):
   """
   tmp_dir = MakeTempDir('boot_', suffix='.img')
   try:
-    RunAndCheckOutput(['unpack_bootimg', '--boot_img',
+    arch = platform.machine()
+    if arch == 'x86_64':
+      RunAndCheckOutput(['unpack_bootimg_x86_64', '--boot_img',
+                      boot_img, '--out', tmp_dir])
+    else:
+      RunAndCheckOutput(['unpack_bootimg_aarch64', '--boot_img',
                       boot_img, '--out', tmp_dir])
     ramdisk = os.path.join(tmp_dir, 'ramdisk')
     if not os.path.isfile(ramdisk):
@@ -3800,7 +3805,12 @@ def GetBootImageBuildProp(boot_img, ramdisk_format=RamdiskFormat.LZ4):
     elif ramdisk_format == RamdiskFormat.GZ:
       with open(ramdisk, 'rb') as input_stream:
         with open(uncompressed_ramdisk, 'wb') as output_stream:
-          p2 = Run(['minigzip', '-d'], stdin=input_stream.fileno(),
+          arch = platform.machine()
+          if arch == 'x86_64':
+            p2 = Run(['minigzip_x86_64', '-d'], stdin=input_stream.fileno(),
+                   stdout=output_stream.fileno())
+          else:
+            p2 = Run(['minigzip_aarch64', '-d'], stdin=input_stream.fileno(),
                    stdout=output_stream.fileno())
           p2.wait()
     else:
@@ -3811,7 +3821,12 @@ def GetBootImageBuildProp(boot_img, ramdisk_format=RamdiskFormat.LZ4):
     extracted_ramdisk = MakeTempDir('extracted_ramdisk')
     # Use "toybox cpio" instead of "cpio" because the latter invokes cpio from
     # the host environment.
-    RunAndCheckOutput(['toybox', 'cpio', '-F', abs_uncompressed_ramdisk, '-i'],
+    arch = platform.machine()
+    if arch == 'x86_64':
+      RunAndCheckOutput(['toybox_x86_64', 'cpio', '-F', abs_uncompressed_ramdisk, '-i'],
+                      cwd=extracted_ramdisk)
+    else:
+      RunAndCheckOutput(['toybox_aarch64', 'cpio', '-F', abs_uncompressed_ramdisk, '-i'],
                       cwd=extracted_ramdisk)
 
     for search_path in RAMDISK_BUILD_PROP_REL_PATHS:
