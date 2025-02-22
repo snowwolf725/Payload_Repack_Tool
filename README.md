@@ -29,6 +29,7 @@ pkg install git openssl-tool zip unzip python openjdk-17 xxd
 ## Installation
 ```bash
 git clone https://github.com/snowwolf725/Payload_Repack_Tool.git
+cd Payload_Repack_Tool
 pip install -r requirements.txt
 ```
 
