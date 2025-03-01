@@ -13,6 +13,7 @@ Using delta_generator to repack `payload.bin`.
 - unzip
 - openssl
 - openssl-tool
+- xxd
 
 ### Linux X86-64 (Ubuntu)
 ```bash
