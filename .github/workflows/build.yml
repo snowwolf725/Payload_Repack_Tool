@@ -1,0 +1,39 @@
+name: Repack OTA zip file
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Out
+      uses: actions/checkout@v3
+    - name: Cleanup
+      uses: rokibhasansagar/slimhub_actions@main
+
+    - name: Prepare the environment
+      run: |
+        sudo apt update
+        sudo apt -y upgrade
+        sudo apt -y install git zip unzip python3 python-is-python3 aria2 xxd openssl openjdk-17-jre-headless python3-protobuf p7zip-full -y
+
+    - name: Set Swap Space
+      uses: pierotofy/set-swap-space@master
+      with:
+        swap-size-gb: 12
+
+    - name: Patch
+      run: |
+
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: | 
+          OTA.zip
+        name: ${{ github.run_id }}
+        tag_name: ${{ github.run_id }}
+        body: |
+          Link: ${{ github.event.inputs.ROM_URL }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
