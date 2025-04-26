@@ -266,8 +266,11 @@ def HasTrebleEnabled(target_files, target_info):
 
 def HasPartition(target_files_zip, partition):
   try:
-    target_files_zip.getinfo(partition.upper() + "/")
-    return True
+    foldername = partition.upper() + "/"
+    for name in target_files_zip.namelist():
+      item = target_files_zip.getinfo(name)
+      if(item.is_dir() and foldername in item.filename):
+        return True
   except KeyError:
     return False
 
