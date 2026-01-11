@@ -1,0 +1,9 @@
+.*.swp
+*~
+bin/__pycache__
+
+*.patch
+META/*.txt.bak.*
+
+output/*.img
+output/*.zip
