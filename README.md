@@ -67,6 +67,19 @@ cd Payload_Repack_Tool
 ./repackZip.sh
 ```
 
+## How to fill out the configuration files?
+The most challenging part of the packaging process is filling out the configuration files. You can use the lpdump command to query the required information, or extract it from the official EDL package (EDL.zip/META/dynamic_partitions_info.txt and ab_partitions.txt). 
+
+Additionally, I've written a setup.sh script that can quickly help you fill out the dynamic_partitions_info.txt and ab_partitions.txt configuration files.
+
+```bash
+cd Payload_Repack_Tool
+./setup.sh
+# Chinese version:
+./setup_zh.sh
+```
+![Setup script](https://i.meee.com.tw/KTff0uC.jpg "Setup script")
+
 ## Demo
 【Android payload.bin 打包-哔哩哔哩】 
 
@@ -74,7 +87,7 @@ https://b23.tv/W166gqz
 
 ## How to install a repackaged payload.bin
 The payload.bin be signed by a private RSA key and the system will refuse to install it without the correct signature.
-If you want to install a repacked payload.bin, you can use one of the following methods to install payload.bin.
+If you want to install a repacked payload.bin, you can use one of thfollowing methods to install payload.bin.
 ### Method 1: TWRP (or other custom recovery)
 ### Method 2: Install Magisk module to replace system RSA key
 Install [module-CustomOTA_CA.zip](https://github.com/snowwolf725/Payload_Repack_Tool/raw/refs/heads/main/module-CustomOTA_CA.zip) through the Magisk/KernelSU/APatch Manager App
