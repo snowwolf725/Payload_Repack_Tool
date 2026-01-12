@@ -179,6 +179,22 @@ main() {
         PARTITION_LIST="$DYNAMIC_PARTITION_LIST"
     fi
     
+        # Create postinstall_config
+    read -p "Do you want to create postinstall_config.txt (y/N): " POSTINS_CONFIRM
+    
+    if [[ "$POSTINS_CONFIRM" =~ ^[Yy]$ ]]; then
+        declare -a POSINS_ARRAY=("my_preload" "vendor")
+        declare -a pos_items=()
+        > META/postinstall_config.txt
+        find_common_elements_nameref IMAGE_ARRAY POSINS_ARRAY pos_items
+        for item in "${pos_items[@]}"; do
+            echo "RUN_POSTINSTALL_$item=true" >> META/postinstall_config.txt
+            echo "POSTINSTALL_PATH_$item=bin/checkpoint_gc" >> META/postinstall_config.txt
+        done
+    else
+        rm META/postinstall_config.txt
+    fi
+    
     # Display configuration summary
     echo ""
     echo -e "${GREEN}=== Configuration Summary ===${NC}"
