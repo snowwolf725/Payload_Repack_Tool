@@ -76,7 +76,7 @@ main() {
     
     # 查找 .img 文件并处理
     declare -a IMAGE_ARRAY=()
-    declare -a DYNAMIC_PARTITION_ARRAY=("my_bigball" "my_carrier" "my_company" "my_engineering" "my_heytap" "my_manifest" "my_preload" "my_product" "my_region" "my_stock" "odm" "product" "system" "system_dlkm" "system_ext" "vendor" "vendor_dlkm")
+    declare -a DYNAMIC_PARTITION_ARRAY=("my_bigball" "my_carrier" "my_company" "my_engineering" "my_heytap" "my_manifest" "my_preload" "my_product" "my_region" "my_stock" "odm" "odm_dlkm" "product" "system" "system_dlkm" "system_ext" "vendor" "vendor_dlkm")
     while read -r file; do
         # 获取文件名（不包括扩展名）
         filename=$(basename "$file" .img)

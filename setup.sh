@@ -76,7 +76,7 @@ main() {
     
     # Find .img files and process
     declare -a IMAGE_ARRAY=()
-    declare -a DYNAMIC_PARTITION_ARRAY=("my_bigball" "my_carrier" "my_company" "my_engineering" "my_heytap" "my_manifest" "my_preload" "my_product" "my_region" "my_stock" "odm" "product" "system" "system_dlkm" "system_ext" "vendor" "vendor_dlkm")
+    declare -a DYNAMIC_PARTITION_ARRAY=("my_bigball" "my_carrier" "my_company" "my_engineering" "my_heytap" "my_manifest" "my_preload" "my_product" "my_region" "my_stock" "odm" "odm_dlkm" "product" "system" "system_dlkm" "system_ext" "vendor" "vendor_dlkm")
     
     while read -r file; do
         # Get filename (without extension)
